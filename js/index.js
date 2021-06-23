@@ -44,6 +44,17 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'What is the capital of India',
+      o: ['Bombay', 'Hyderabad', 'Delhi', 'Bangalore'],
+      a: 2,
+    },
+    {
+      q: 'Which game has eleven players in the team',
+      o: ['Cricket', 'Footy', 'Netball', 'Basketball'],
+      a: 0,
+    },
+
   ];
 
   // function to Display the quiz questions and answers from the object
@@ -88,3 +99,27 @@ window.addEventListener('DOMContentLoaded', () => {
   // call the displayQuiz function
   displayQuiz();
 });
+
+//event listener for submit button
+const submitButton = document.getElementById('btnSubmit');
+submitButton.addEventListener('click', () => {
+  submitButton.style.display="none";
+  calculateScore();
+    displayScore();
+    quizOver = 1;
+});
+
+//event listener for reset button
+const resetButton = document.getElementById('btnReset');
+resetButton.addEventListener ('click', () =>{
+  location.reload();
+});
+
+//countdown timer
+var seconds = 60, $seconds = document.querySelector('#time');
+(function countdown() {
+    $seconds.textContent = seconds + ' second' + (seconds == 1 ?  '' :  's')
+    if(seconds --> 0) setTimeout(countdown, 10000)
+})();
+
+
